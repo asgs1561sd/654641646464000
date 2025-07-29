@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير متابعة شهري</title>
+    <style>
+        /* CSS */
+        :root {
+            --primary-color: #2ecc71;
+            --primary-dark: #27ae60;
+            --secondary-color: #3498db;
+            --secondary-dark: #2980b9;
+            --danger-color: #e74c3c;
+            --danger-dark: #c0392b;
+            --text-color: #2c3e50;
+            --light-gray: #ecf0f1;
+            --medium-gray: #bdc3c7;
+            --dark-gray: #95a5a6;
+        }
+        
+        body {
+            font-family: 'Tajawal', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .welcome-message {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideInDown 0.7s ease-out;
+        }
+        
+        .welcome-message:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .report-title {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 28px;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 15px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .report-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: var(--light-gray);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px 8px 0 0;
+            margin-left: 8px;
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn:hover {
+            background-color: #ddd;
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 25px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.7s ease-in-out;
+        }
+        
+        table, th, td {
+            border: 1px solid #e0e0e0;
+        }
+        
+        th, td {
+            padding: 14px;
+            text-align: right;
+            transition: background-color 0.2s ease;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+            outline: none;
+        }
+        
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background-color: var(--danger-dark);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-dark);
+        }
+        
+        .action-btns {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .action-btns .btn {
+            margin: 0 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .stat-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 30%;
+            min-width: 200px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .stat-box h3 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 18px;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .export-options {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .export-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
+        }
+        
+        .export-btn i {
+            font-size: 18px;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .form-container h3 {
+            margin-top: 0;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-container h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* تأثيرات للبطاقات */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* تأثيرات للتنبيهات */
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-weight: bold;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* تأثيرات للتحميل */
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* تأثيرات للزر عند النقر */
+        .btn-click-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-click-effect:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-click-effect:focus:not(:active)::after {
+            animation: ripple 0.6s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        /* تأثيرات للعناصر عند الظهور */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        [data-animate].animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* تأثيرات للشريط التقدمي */
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 15px 0;
+            height: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        /* تأثيرات للزر العائم */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        @media print {
+            .no-print, .action-btns, .floating-btn {
+                display: none !important;
+            }
+            
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                width: 100%;
+                padding: 0;
+            }
+            
+            table {
+                page-break-inside: auto;
+            }
+            
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+            
+            .stat-box {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .stat-box {
+                width: 100%;
+            }
+            
+            .export-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                margin-bottom: 5px;
+                margin-left: 0;
+                border-radius: 8px;
+            }
+        }
+    </style>
+    <!-- إضافة خط Tajawal لجعل النص العربي أكثر جمالا -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- إضافة أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- إضافة مكتبة jsPDF للتصدير إلى PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <!-- زر عائم للعودة للأعلى -->
+    <button class="floating-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <div class="container">
+        <!-- رسالة ترحيبية -->
+        <div class="welcome-message" data-animate>
+            <h1>مرحباً بكم في نظام المتابعة الشهرية</h1>
+            <p>نظام متكامل لإدارة التقارير والمهام الشهرية</p>
+        </div>
+        
+        <!-- عنوان التقرير -->
+        <div class="report-title" data-animate>
+            <h2>تقرير متابعة شهري</h2>
+        </div>
+        
+        <!-- تبويبات التطبيق -->
+        <div class="tabs" data-animate>
+            <button class="tab-btn active" onclick="openTab(event, 'tasksTab')">
+                <i class="fas fa-tasks"></i> قائمة المهمات
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'assignmentsTab')">
+                <i class="fas fa-clipboard-list"></i> قائمة التكليف
+            </button>
+        </div>
+        
+        <!-- تبويب المهمات -->
+        <div id="tasksTab" class="tab-content active">
+            <!-- تنبيهات -->
+            <div id="taskAlert" class="alert alert-success"></div>
+            
+            <!-- إضافة مهمة جديدة -->
+            <div class="form-container" data-animate>
+                <h3><i class="fas fa-plus-circle"></i> إضافة مهمة جديدة</h3>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskName"><i class="fas fa-tasks"></i> المهمة</label>
+                        <input type="text" id="taskName" required placeholder="أدخل اسم المهمة">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskStatus"><i class="fas fa-info-circle"></i> حالة التنفيذ</label>
+                        <select id="taskStatus" required>
+                            <option value="تم التنفيذ">تم التنفيذ</option>
+                            <option value="جاري التنفيذ">جاري التنفيذ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskNotes"><i class="fas fa-sticky-note"></i> الملاحظات</label>
+                        <textarea id="taskNotes" rows="3" placeholder="أدخل أي ملاحظات هنا"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskAttachment"><i class="fas fa-paperclip"></i> إرفاق ملف</label>
+                        <input type="file" id="taskAttachment">
+                    </div>
+                    <button type="button" class="btn btn-click-effect" onclick="addTask()">
+                        <i class="fas fa-save"></i> حفظ المهمة
+                    </button>
+                    <div id="taskLoader" class="loader"></div>
+                </form>
+            </div>
+            
+            <!-- جدول المهمات -->
+            <h3 data-animate><i class="fas fa-list"></i> قائمة المهمات</h3>
+            <div class="progress-container" data-animate>
+                <div class="progress-bar" id="taskProgress"></div>
+            </div>
+            <table id="tasksTable" data-animate>
+                <thead>
+                    <tr>
+                        <th>مسلسل</th>
+                        <th>المهمة</th>
+                        <th>حالة التنفيذ</th>
+                        <th>الملاحظات</th>
+                        <th class="no-print">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="tasksTableBody">
+                    <!-- سيتم ملؤها بالبيانات عبر JavaScript -->
+                </tbody>
+            </table>
+            
+            <!-- إحصائيات المهام -->
+            <div class="stats-container">
+                <div class="stat-box" data-animate>
+                    <h3><i class="fas fa-tasks"></i> إجمالي المهام</h3>
+                    <div class="stat-value" id="totalTasks">0</div>
+                    <p>جميع المهام المسجلة</p>
+                </div>
+                <div class="stat-box" data-animate>
+                    <h3><i class="fas fa-check-circle"></i> تم التنفيذ</h3>
+                    <div class="stat-value" id="completedTasks">0</div>
+                    <p>المهام المكتملة</p>
+                </div>
+                <div class="stat-box" data-animate>
+                    <h3><i class="fas fa-spinner"></i> جاري التنفيذ</h3>
+                    <div class="stat-value" id="inProgressTasks">0</div>
+                    <p>المهام قيد التنفيذ</p>
+                </div>
+            </div>
+            
+            <!-- خيارات التصدير -->
+            <div class="export-options">
+                <button class="export-btn" onclick="printTasks()" data-animate>
+                    <i class="fas fa-print"></i> طباعة المهام
+                </button>
+                <button class="export-btn" onclick="exportToExcel('tasksTable', 'المهام')" data-animate>
+                    <i class="fas fa-file-excel"></i> تصدير إلى Excel
+                </button>
+                <button class="export-btn" onclick="exportToPDF('tasksTable', 'المهام')" data-animate>
+                    <i class="fas fa-file-pdf"></i> تصدير إلى PDF
+                </button>
+                <button class="export-btn" onclick="shareReport('tasks')" data-animate>
+                    <i class="fas fa-share-alt"></i> مشاركة التقرير
+                </button>
+            </div>
+        </div>
+        
+        <!-- تبويب التكليفات -->
+        <div id="assignmentsTab" class="tab-content">
+            <!-- تنبيهات -->
+            <div id="assignmentAlert" class="alert alert-success"></div>
+            
+            <!-- إضافة تكليف جديد -->
+            <div class="form-container" data-animate>
+                <h3><i class="fas fa-plus-circle"></i> إضافة تكليف جديد</h3>
+                <form id="assignmentForm">
+                    <div class="form-group">
+                        <label for="reportName"><i class="fas fa-file-alt"></i> اسم التقرير</label>
+                        <input type="text" id="reportName" required placeholder="أدخل اسم التقرير">
+                    </div>
+                    <div class="form-group">
+                        <label for="department"><i class="fas fa-building"></i> الإدارة</label>
+                        <select id="department" required>
+                            <option value="">اختر الإدارة</option>
+                            <option value="الإدارة المالية">الإدارة المالية</option>
+                            <option value="الإدارة التجارية">الإدارة التجارية</option>
+                            <option value="الإدارة التسويقية">الإدارة التسويقية</option>
+                            <option value="إدارة المشتريات">إدارة المشتريات</option>
+                            <option value="إدارة المبيعات">إدارة المبيعات</option>
+                            <option value="إدارة الصيانة">إدارة الصيانة</option>
+                            <option value="أخرى">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employee"><i class="fas fa-user-tie"></i> الموظف المختص</label>
+                        <input type="text" id="employee" required placeholder="أدخل اسم الموظف">
+                    </div>
+                    <div class="form-group">
+                        <label for="reportDate"><i class="fas fa-calendar-alt"></i> التاريخ</label>
+                        <input type="date" id="reportDate" required>
+                    </div>
+                    <button type="button" class="btn btn-click-effect" onclick="addAssignment()">
+                        <i class="fas fa-save"></i> حفظ التكليف
+                    </button>
+                    <div id="assignmentLoader" class="loader"></div>
+                </form>
+            </div>
+            
+            <!-- جدول التكليفات -->
+            <h3 data-animate><i class="fas fa-list"></i> قائمة التكليف</h3>
+            <table id="assignmentsTable" data-animate>
+                <thead>
+                    <tr>
+                        <th>اسم التقرير</th>
+                        <th>الإدارة</th>
+                        <th>الموظف المختص</th>
+                        <th>التاريخ</th>
+                        <th class="no-print">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="assignmentsTableBody">
+                    <!-- سيتم ملؤها بالبيانات عبر JavaScript -->
+                </tbody>
+            </table>
+            
+            <!-- خيارات التصدير -->
+            <div class="export-options">
+                <button class="export-btn" onclick="printAssignments()" data-animate>
+                    <i class="fas fa-print"></i> طباعة التكليفات
+                </button>
+                <button class="export-btn" onclick="exportToExcel('assignmentsTable', 'التكليفات')" data-animate>
+                    <i class="fas fa-file-excel"></i> تصدير إلى Excel
+                </button>
+                <button class="export-btn" onclick="exportToPDF('assignmentsTable', 'التكليفات')" data-animate>
+                    <i class="fas fa-file-pdf"></i> تصدير إلى PDF
+                </button>
+                <button class="export-btn" onclick="shareReport('assignments')" data-animate>
+                    <i class="fas fa-share-alt"></i> مشاركة التقرير
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript
+        // تهيئة jsPDF
+        const { jsPDF } = window.jspdf;
+        
+        let tasks = [];
+        let assignments = [];
+        let currentEditTaskId = null;
+        let currentEditAssignmentId = null;
+        
+        // وظيفة لفتح التبويبات
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // وظيفة لإظهار التنبيه
+        function showAlert(type, message, containerId) {
+            const alert = document.getElementById(containerId);
+            alert.textContent = message;
+            alert.className = `alert alert-${type}`;
+            alert.style.display = 'block';
+            
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        }
+        
+        // وظيفة لإضافة مهمة جديدة
+        function addTask() {
+            const taskName = document.getElementById("taskName").value;
+            const taskStatus = document.getElementById("taskStatus").value;
+            const taskNotes = document.getElementById("taskNotes").value;
+            const taskAttachment = document.getElementById("taskAttachment").files[0];
+            
+            if (!taskName) {
+                showAlert('error', 'الرجاء إدخال اسم المهمة', 'taskAlert');
+                return;
+            }
+            
+            // عرض مؤشر التحميل
+            const loader = document.getElementById("taskLoader");
+            loader.style.display = 'block';
+            
+            // محاكاة عملية الحفظ (في تطبيق حقيقي سيكون هذا طلب AJAX)
+            setTimeout(() => {
+                const taskId = Date.now();
+                
+                if (currentEditTaskId) {
+                    // تعديل المهمة الحالية
+                    const taskIndex = tasks.findIndex(task => task.id === currentEditTaskId);
+                    if (taskIndex !== -1) {
+                        tasks[taskIndex] = {
+                            id: currentEditTaskId,
+                            name: taskName,
+                            status: taskStatus,
+                            notes: taskNotes,
+                            attachment: taskAttachment || tasks[taskIndex].attachment
+                        };
+                    }
+                    currentEditTaskId = null;
+                    document.getElementById("taskForm").querySelector("button").innerHTML = '<i class="fas fa-save"></i> حفظ المهمة';
+                    showAlert('success', 'تم تحديث المهمة بنجاح', 'taskAlert');
+                } else {
+                    // إضافة مهمة جديدة
+                    tasks.push({
+                        id: taskId,
+                        name: taskName,
+                        status: taskStatus,
+                        notes: taskNotes,
+                        attachment: taskAttachment
+                    });
+                    showAlert('success', 'تم إضافة المهمة بنجاح', 'taskAlert');
+                }
+                
+                // تحديث الجدول والإحصائيات
+                updateTasksTable();
+                updateStats();
+                
+                // إعادة تعيين النموذج
+                document.getElementById("taskForm").reset();
+                
+                // إخفاء مؤشر التحميل
+                loader.style.display = 'none';
+                
+                // تأثير اهتزاز للجدول
+                const table = document.getElementById("tasksTable");
+                table.style.animation = 'none';
+                setTimeout(() => {
+                    table.style.animation = 'shake 0.5s';
+                }, 10);
+            }, 1000);
+        }
+        
+        // وظيفة لتحديث جدول المهام
+        function updateTasksTable() {
+            const tableBody = document.getElementById("tasksTableBody");
+            tableBody.innerHTML = "";
+            
+            tasks.forEach((task, index) => {
+                const row = document.createElement("tr");
+                
+                // تأثير ظهور الصف تدريجياً
+                row.style.animationDelay = `${index * 0.1}s`;
+                row.classList.add('animated');
+                
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${task.name}</td>
+                    <td>
+                        <span class="status-badge ${task.status === 'تم التنفيذ' ? 'completed' : 'in-progress'}">
+                            ${task.status}
+                        </span>
+                    </td>
+                    <td>${task.notes || '-'}</td>
+                    <td class="action-btns no-print">
+                        <button class="btn btn-primary" onclick="editTask(${task.id})">
+                            <i class="fas fa-edit"></i> تعديل
+                        </button>
+                        <button class="btn btn-danger" onclick="deleteTask(${task.id})">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // تحديث شريط التقدم
+            updateProgressBar();
+        }
+        
+        // وظيفة لتحديث شريط التقدم
+        function updateProgressBar() {
+            const totalTasks = tasks.length;
+            const completedTasks = tasks.filter(task => task.status === "تم التنفيذ").length;
+            const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+            
+            document.getElementById("taskProgress").style.width = `${progress}%`;
+        }
+        
+        // وظيفة لتعديل المهمة
+        function editTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                document.getElementById("taskName").value = task.name;
+                document.getElementById("taskStatus").value = task.status;
+                document.getElementById("taskNotes").value = task.notes || '';
+                currentEditTaskId = taskId;
+                document.getElementById("taskForm").querySelector("button").innerHTML = '<i class="fas fa-sync-alt"></i> تحديث المهمة';
+                document.getElementById("taskForm").scrollIntoView({ behavior: 'smooth' });
+                
+                // تأثير اهتزاز للنموذج
+                const form = document.getElementById("taskForm");
+                form.style.animation = 'none';
+                setTimeout(() => {
+                    form.style.animation = 'pulse 0.5s';
+                }, 10);
+            }
+        }
+        
+        // وظيفة لحذف المهمة
+        function deleteTask(taskId) {
+            if (confirm("هل أنت متأكد من حذف هذه المهمة؟")) {
+                // تأثير تحميل
+                const loader = document.getElementById("taskLoader");
+                loader.style.display = 'block';
+                
+                setTimeout(() => {
+                    tasks = tasks.filter(task => task.id !== taskId);
+                    updateTasksTable();
+                    updateStats();
+                    showAlert('success', 'تم حذف المهمة بنجاح', 'taskAlert');
+                    loader.style.display = 'none';
+                }, 800);
+            }
+        }
+        
+        // وظيفة لتحديث الإحصائيات
+        function updateStats() {
+            document.getElementById("totalTasks").textContent = tasks.length;
+            document.getElementById("completedTasks").textContent = tasks.filter(task => task.status === "تم التنفيذ").length;
+            document.getElementById("inProgressTasks").textContent = tasks.filter(task => task.status === "جاري التنفيذ").length;
+            
+            // تأثير عد الأرقام
+            animateValue("totalTasks", 0, tasks.length, 1000);
+            animateValue("completedTasks", 0, tasks.filter(task => task.status === "تم التنفيذ").length, 1000);
+            animateValue("inProgressTasks", 0, tasks.filter(task => task.status === "جاري التنفيذ").length, 1000);
+        }
+        
+        // وظيفة لتحريك الأرقام
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // وظيفة لإضافة تكليف جديد
+        function addAssignment() {
+            const reportName = document.getElementById("reportName").value;
+            const department = document.getElementById("department").value;
+            const employee = document.getElementById("employee").value;
+            const reportDate = document.getElementById("reportDate").value;
+            
+            if (!reportName || !department || !employee || !reportDate) {
+                showAlert('error', 'الرجاء ملء جميع الحقول المطلوبة', 'assignmentAlert');
+                return;
+            }
+            
+            // عرض مؤشر التحميل
+            const loader = document.getElementById("assignmentLoader");
+            loader.style.display = 'block';
+            
+            // محاكاة عملية الحفظ (في تطبيق حقيقي سيكون هذا طلب AJAX)
+            setTimeout(() => {
+                const assignmentId = Date.now();
+                
+                if (currentEditAssignmentId) {
+                    // تعديل التكليف الحالي
+                    const assignmentIndex = assignments.findIndex(a => a.id === currentEditAssignmentId);
+                    if (assignmentIndex !== -1) {
+                        assignments[assignmentIndex] = {
+                            id: currentEditAssignmentId,
+                            reportName,
+                            department,
+                            employee,
+                            date: reportDate
+                        };
+                    }
+                    currentEditAssignmentId = null;
+                    document.getElementById("assignmentForm").querySelector("button").innerHTML = '<i class="fas fa-save"></i> حفظ التكليف';
+                    showAlert('success', 'تم تحديث التكليف بنجاح', 'assignmentAlert');
+                } else {
+                    // إضافة تكليف جديد
+                    assignments.push({
+                        id: assignmentId,
+                        reportName,
+                        department,
+                        employee,
+                        date: reportDate
+                    });
+                    showAlert('success', 'تم إضافة التكليف بنجاح', 'assignmentAlert');
+                }
+                
+                // تحديث الجدول
+                updateAssignmentsTable();
+                
+                // إعادة تعيين النموذج
+                document.getElementById("assignmentForm").reset();
+                
+                // إخفاء مؤشر التحميل
+                loader.style.display = 'none';
+                
+                // تأثير اهتزاز للجدول
+                const table = document.getElementById("assignmentsTable");
+                table.style.animation = 'none';
+                setTimeout(() => {
+                    table.style.animation = 'shake 0.5s';
+                }, 10);
+            }, 1000);
+        }
+        
+        // وظيفة لتحديث جدول التكليفات
+        function updateAssignmentsTable() {
+            const tableBody = document.getElementById("assignmentsTableBody");
+            tableBody.innerHTML = "";
+            
+            assignments.forEach((assignment, index) => {
+                const row = document.createElement("tr");
+                
+                // تأثير ظهور الصف تدريجياً
+                row.style.animationDelay = `${index * 0.1}s`;
+                row.classList.add('animated');
+                
+                row.innerHTML = `
+                    <td>${assignment.reportName}</td>
+                    <td>${assignment.department}</td>
+                    <td>${assignment.employee}</td>
+                    <td>${formatDate(assignment.date)}</td>
+                    <td class="action-btns no-print">
+                        <button class="btn btn-primary" onclick="editAssignment(${assignment.id})">
+                            <i class="fas fa-edit"></i> تعديل
+                        </button>
+                        <button class="btn btn-danger" onclick="deleteAssignment(${assignment.id})">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // وظيفة لتنسيق التاريخ
+        function formatDate(dateString) {
+            if (!dateString) return '-';
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('ar-EG', options);
+        }
+        
+        // وظيفة لتعديل التكليف
+        function editAssignment(assignmentId) {
+            const assignment = assignments.find(a => a.id === assignmentId);
+            if (assignment) {
+                document.getElementById("reportName").value = assignment.reportName;
+                document.getElementById("department").value = assignment.department;
+                document.getElementById("employee").value = assignment.employee;
+                document.getElementById("reportDate").value = assignment.date.split('T')[0];
+                currentEditAssignmentId = assignmentId;
+                document.getElementById("assignmentForm").querySelector("button").innerHTML = '<i class="fas fa-sync-alt"></i> تحديث التكليف';
+                document.getElementById("assignmentForm").scrollIntoView({ behavior: 'smooth' });
+                
+                // تأثير اهتزاز للنموذج
+                const form = document.getElementById("assignmentForm");
+                form.style.animation = 'none';
+                setTimeout(() => {
+                    form.style.animation = 'pulse 0.5s';
+                }, 10);
+            }
+        }
+        
+        // وظيفة لحذف التكليف
+        function deleteAssignment(assignmentId) {
+            if (confirm("هل أنت متأكد من حذف هذا التكليف؟")) {
+                // تأثير تحميل
+                const loader = document.getElementById("assignmentLoader");
+                loader.style.display = 'block';
+                
+                setTimeout(() => {
+                    assignments = assignments.filter(a => a.id !== assignmentId);
+                    updateAssignmentsTable();
+                    showAlert('success', 'تم حذف التكليف بنجاح', 'assignmentAlert');
+                    loader.style.display = 'none';
+                }, 800);
+            }
+        }
+        
+        // وظيفة لطباعة المهام
+        function printTasks() {
+            // تأثير تحضير للطباعة
+            const printBtn = event.target;
+            printBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير للطباعة...';
+            
+            setTimeout(() => {
+                window.print();
+                printBtn.innerHTML = '<i class="fas fa-print"></i> طباعة المهام';
+            }, 500);
+        }
+        
+        // وظيفة لطباعة التكليفات
+        function printAssignments() {
+            // تأثير تحضير للطباعة
+            const printBtn = event.target;
+            printBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير للطباعة...';
+            
+            setTimeout(() => {
+                window.print();
+                printBtn.innerHTML = '<i class="fas fa-print"></i> طباعة التكليفات';
+            }, 500);
+        }
+        
+        // وظيفة للتصدير إلى Excel
+        function exportToExcel(tableId, filename) {
+            const table = document.getElementById(tableId);
+            
+            // استثناء الأعمدة التي تحتوي على class 'no-print'
+            const rows = table.querySelectorAll('tr');
+            let html = '<table>';
+            
+            rows.forEach((row, rowIndex) => {
+                if (rowIndex === 0) { // header
+                    html += '<tr>';
+                    row.querySelectorAll('th').forEach(th => {
+                        if (!th.classList.contains('no-print')) {
+                            html += `<th>${th.textContent}</th>`;
+                        }
+                    });
+                    html += '</tr>';
+                } else { // body
+                    html += '<tr>';
+                    row.querySelectorAll('td').forEach((td, cellIndex) => {
+                        if (!td.classList.contains('no-print')) {
+                            html += `<td>${td.textContent}</td>`;
+                        }
+                    });
+                    html += '</tr>';
+                }
+            });
+            
+            html += '</table>';
+            
+            // تأثير تحضير للتصدير
+            const exportBtn = event.target;
+            exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التصدير...';
+            
+            setTimeout(() => {
+                // إنشاء ملف Excel
+                const blob = new Blob([html], { type: "application/vnd.ms-excel" });
+                const a = document.createElement("a");
+                a.href = URL.createObjectURL(blob);
+                a.download = `${filename}_${new Date().toLocaleDateString('ar-EG')}.xls`;
+                a.click();
+                
+                exportBtn.innerHTML = '<i class="fas fa-file-excel"></i> تصدير إلى Excel';
+                showAlert('success', 'تم التصدير إلى Excel بنجاح', tableId === 'tasksTable' ? 'taskAlert' : 'assignmentAlert');
+            }, 1000);
+        }
+        
+        // وظيفة للتصدير إلى PDF
+        function exportToPDF(tableId, filename) {
+            const exportBtn = event.target;
+            exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التصدير...';
+            
+            setTimeout(() => {
+                const table = document.getElementById(tableId);
+                const doc = new jsPDF();
+                
+                // عنوان التقرير
+                doc.setFont('Tajawal', 'normal');
+                doc.setFontSize(18);
+                doc.text(filename, 105, 15, { align: 'center' });
+                
+                // تحضير البيانات للجدول
+                const headers = [];
+                const rows = [];
+                
+                // الحصول على العناوين (استثناء الأعمدة التي تحتوي على class 'no-print')
+                table.querySelectorAll('th').forEach(th => {
+                    if (!th.classList.contains('no-print')) {
+                        headers.push(th.textContent);
+                    }
+                });
+                
+                // الحصول على بيانات الصفوف
+                table.querySelectorAll('tbody tr').forEach(tr => {
+                    const rowData = [];
+                    tr.querySelectorAll('td').forEach((td, index) => {
+                        if (!td.classList.contains('no-print')) {
+                            rowData.push(td.textContent);
+                        }
+                    });
+                    if (rowData.length > 0) {
+                        rows.push(rowData);
+                    }
+                });
+                
+                // إضافة الجدول إلى PDF
+                doc.autoTable({
+                    head: [headers],
+                    body: rows,
+                    startY: 25,
+                    styles: {
+                        font: 'Tajawal',
+                        fontStyle: 'normal',
+                        textColor: [0, 0, 0],
+                        halign: 'right'
+                    },
+                    headStyles: {
+                        fillColor: [46, 204, 113],
+                        textColor: [255, 255, 255],
+                        fontStyle: 'bold'
+                    },
+                    alternateRowStyles: {
+                        fillColor: [249, 249, 249]
+                    }
+                });
+                
+                // حفظ الملف
+                doc.save(`${filename}_${new Date().toLocaleDateString('ar-EG')}.pdf`);
+                
+                exportBtn.innerHTML = '<i class="fas fa-file-pdf"></i> تصدير إلى PDF';
+                showAlert('success', 'تم التصدير إلى PDF بنجاح', tableId === 'tasksTable' ? 'taskAlert' : 'assignmentAlert');
+            }, 500);
+        }
+        
+        // وظيفة لمشاركة التقرير
+        function shareReport(type) {
+            const shareBtn = event.target;
+            shareBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير...';
+            
+            setTimeout(() => {
+                if (navigator.share) {
+                    let title, text;
+                    
+                    if (type === 'tasks') {
+                        title = "تقرير المهام الشهري";
+                        text = `إجمالي المهام: ${tasks.length}\nتم التنفيذ: ${tasks.filter(t => t.status === "تم التنفيذ").length}\nجاري التنفيذ: ${tasks.filter(t => t.status === "جاري التنفيذ").length}`;
+                    } else {
+                        title = "تقرير التكليفات الشهري";
+                        text = `إجمالي التكليفات: ${assignments.length}`;
+                    }
+                    
+                    navigator.share({
+                        title: title,
+                        text: text,
+                        url: window.location.href
+                    }).then(() => {
+                        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> مشاركة التقرير';
+                    }).catch(err => {
+                        console.error('Error sharing:', err);
+                        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> مشاركة التقرير';
+                        showAlert('error', 'فشلت عملية المشاركة', type === 'tasks' ? 'taskAlert' : 'assignmentAlert');
+                    });
+                } else {
+                    shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> مشاركة التقرير';
+                    // نسخ النص إلى الحافظة إذا لم يكن المشاركة متاحة
+                    const textToCopy = type === 'tasks' ?
+                        `تقرير المهام الشهري\nإجمالي المهام: ${tasks.length}\nتم التنفيذ: ${tasks.filter(t => t.status === "تم التنفيذ").length}\nجاري التنفيذ: ${tasks.filter(t => t.status === "جاري التنفيذ").length}` :
+                        `تقرير التكليفات الشهري\nإجمالي التكليفات: ${assignments.length}`;
+                    
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        showAlert('success', 'تم نسخ التقرير إلى الحافظة', type === 'tasks' ? 'taskAlert' : 'assignmentAlert');
+                    }).catch(err => {
+                        console.error('Failed to copy:', err);
+                        showAlert('error', 'فشل نسخ التقرير، يمكنك نسخه يدوياً', type === 'tasks' ? 'taskAlert' : 'assignmentAlert');
+                    });
+                }
+            }, 500);
+        }
+        
+        // وظيفة لتحريك العناصر عند التمرير
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('[data-animate]');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        // تهيئة أولية
+        document.addEventListener("DOMContentLoaded", function() {
+            // تحريك العناصر عند التمرير
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // تشغيلها مرة عند التحميل
+            
+            // إضافة بعض البيانات الأولية للعرض التوضيحي
+            tasks = [
+                { id: 1, name: "إعداد التقرير المالي", status: "تم التنفيذ", notes: "تم الانتهاء من التقرير قبل الموعد المحدد" },
+                { id: 2, name: "تحديث قاعدة البيانات", status: "جاري التنفيذ", notes: "في انتظار موافقة الإدارة" },
+                { id: 3, name: "مراجعة العقود", status: "جاري التنفيذ", notes: "" },
+                { id: 4, name: "تحليل بيانات المبيعات", status: "تم التنفيذ", notes: "تم إرسال النتائج للإدارة" },
+                { id: 5, name: "تطوير واجهة المستخدم", status: "جاري التنفيذ", notes: "قيد المراجعة النهائية" }
+            ];
+            
+            assignments = [
+                { id: 1, reportName: "التقرير المالي لشهر يوليو", department: "الإدارة المالية", employee: "أحمد محمد", date: "2023-07-15" },
+                { id: 2, reportName: "تحليل السوق", department: "الإدارة التسويقية", employee: "سارة عبدالله", date: "2023-07-20" },
+                { id: 3, reportName: "تقرير المبيعات الربع سنوي", department: "إدارة المبيعات", employee: "خالد سمير", date: "2023-07-25" },
+                { id: 4, reportName: "تقييم أداء الموظفين", department: "إدارة الموارد البشرية", employee: "نورا أحمد", date: "2023-07-30" }
+            ];
+            
+            updateTasksTable();
+            updateAssignmentsTable();
+            updateStats();
+            
+            // إضافة تأثيرات CSS ديناميكية
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+                
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.02); }
+                    100% { transform: scale(1); }
+                }
+                
+                .status-badge {
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+                
+                .status-badge.completed {
+                    background-color: #d4edda;
+                    color: #155724;
+                }
+                
+                .status-badge.in-progress {
+                    background-color: #fff3cd;
+                    color: #856404;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
