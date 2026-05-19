@@ -2,1344 +2,1055 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>تقرير متابعة شهري</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="description" content="3Alearning | التعريف بالنفس - كلمات مع 5 جمل لكل كلمة - نطق وتدريب كتابي مع ترجمة عربية">
+    <title>3Alearning | التعريف بالنفس - كلمات مع جمل وترجمة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2ecc71;
-            --primary-dark: #27ae60;
-            --secondary-color: #3498db;
-            --secondary-dark: #2980b9;
-            --danger-color: #e74c3c;
-            --danger-dark: #c0392b;
-            --text-color: #2c3e50;
-            --light-gray: #ecf0f1;
-            --medium-gray: #bdc3c7;
-            --dark-gray: #95a5a6;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: #f8f8f8;
+            color: #1a1a1a; 
+            line-height: 1.5; 
+            min-height: 100vh;
         }
         
-        body {
-            font-family: 'Tajawal', 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: var(--text-color);
-            line-height: 1.6;
-            font-size: 16px;
+        .site-header { 
+            background: white;
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 0.6rem 1.5rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px;
-            animation: fadeIn 0.5s ease-in-out;
-            box-sizing: border-box;
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* زر الرجوع - حجم أكبر */
+        .back-arrow-btn { 
+            background: #f0f0f0; 
+            border: 1px solid #ddd; 
+            font-size: 1rem; 
+            cursor: pointer; 
+            color: #333; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            font-weight: 700;
         }
         
-        .welcome-message {
-            text-align: center;
-            margin: 20px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            animation: slideInDown 0.7s ease-out;
-        }
-        
-        .welcome-message h1 {
-            font-size: 1.8rem;
-            margin: 0;
-        }
-        
-        .welcome-message p {
-            font-size: 1rem;
-            margin: 10px 0 0;
-        }
-        
-        @keyframes slideInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .report-title {
-            text-align: center;
-            margin: 25px 0;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            position: relative;
-            padding-bottom: 15px;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-        
-        .report-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-        
-        .tabs {
-            display: flex;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--light-gray);
-            animation: fadeIn 0.6s ease-in-out;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .tab-btn {
-            padding: 10px 20px;
-            background-color: var(--light-gray);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 8px 8px 0 0;
-            margin-left: 5px;
-            color: var(--text-color);
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        
-        .tab-btn:hover {
-            background-color: #ddd;
-            transform: translateY(-2px);
-        }
-        
-        .tab-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
-        }
-        
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 100%;
-            height: 3px;
-            background-color: white;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 15px;
-            background-color: white;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            animation: fadeInUp 0.5s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            animation: fadeIn 0.7s ease-in-out;
-            font-size: 0.9rem;
-        }
-        
-        table, th, td {
-            border: 1px solid #e0e0e0;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: right;
-            transition: background-color 0.2s ease;
-        }
-        
-        th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        tr:hover {
-            background-color: #f1f8ff;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
-            outline: none;
-        }
-        
-        .btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: bold;
-            margin: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-danger {
-            background-color: var(--danger-color);
-        }
-        
-        .btn-danger:hover {
-            background-color: var(--danger-dark);
-        }
-        
-        .btn-primary {
-            background-color: var(--secondary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary-dark);
-        }
-        
-        .action-btns {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        
-        .action-btns .btn {
-            margin: 0;
-            padding: 8px 12px;
-            font-size: 0.85rem;
-            flex-grow: 1;
-        }
-        
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-        
-        .stat-box {
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            min-width: 0;
-        }
-        
-        .stat-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-        
-        .stat-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-        }
-        
-        .stat-box h3 {
-            margin-top: 0;
-            color: var(--text-color);
+        .back-arrow-btn i {
             font-size: 1rem;
         }
         
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 10px 0;
-            position: relative;
+        .back-arrow-btn:hover { 
+            background: #e0e0e0; 
+            transform: translateX(-3px);
         }
         
-        .export-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-            animation: fadeIn 0.8s ease-in-out;
+        .site-name { 
+            font-size: 1.2rem; 
+            font-weight: 800; 
+            color: #111;
+            letter-spacing: -0.5px;
         }
         
-        .export-btn {
-            padding: 10px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+        .main-container { 
+            max-width: 1400px; 
+            margin: 1.5rem auto; 
+            padding: 0 1.2rem; 
+        }
+        
+        .controls-bar { 
+            background: white;
+            border-radius: 20px; 
+            padding: 0.8rem 1.2rem; 
+            margin-bottom: 1.5rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 0.8rem; 
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        
+        .filter-buttons { 
+            display: flex; 
+            gap: 0.6rem; 
+        }
+        
+        .filter-btn { 
+            background: #f5f5f5; 
+            border: 1px solid #e0e0e0; 
+            padding: 0.5rem 1.2rem; 
+            border-radius: 40px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            color: #555; 
+        }
+        
+        .filter-btn:hover { 
+            background: #e8e8e8; 
+            transform: translateY(-1px);
+        }
+        
+        .filter-btn.active { 
+            background: #111;
+            color: white; 
+            border-color: #111;
+        }
+        
+        .search-wrapper { 
+            background: #fafafa; 
+            border-radius: 40px; 
+            border: 1px solid #e0e0e0; 
+            padding: 0.4rem 1rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            width: 260px; 
+            transition: all 0.2s;
+        }
+        
+        .search-wrapper:focus-within { 
+            border-color: #111; 
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+        }
+        
+        .search-wrapper input { 
+            border: none; 
+            outline: none; 
+            background: transparent; 
+            width: 100%; 
+            font-size: 0.8rem;
+            color: #1a1a1a;
+        }
+        
+        .search-wrapper input::placeholder {
+            color: #aaa;
+        }
+        
+        .progress-indicator { 
+            background: #111;
+            padding: 0.4rem 1rem; 
+            border-radius: 40px; 
+            font-size: 0.75rem; 
+            font-weight: 600; 
             color: white;
-            border: none;
-            border-radius: 6px;
+        }
+        
+        .cards-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); 
+            gap: 1.5rem; 
+        }
+        
+        .flip-card {
+            background: transparent;
+            perspective: 1500px;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            text-align: center;
+            transition: transform 0.5s ease-in-out;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e8e8e8;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+        }
+        
+        .card-front {
+            transform: rotateY(0deg);
             justify-content: center;
+        }
+        
+        .card-back {
+            transform: rotateY(180deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        
+        .card-word-large {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-translation {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .flip-hint {
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+        
+        .sentence-block {
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+        
+        .example-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
             gap: 8px;
         }
         
-        .export-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
+        .sentence-counter {
+            font-size: 0.7rem;
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            color: #555;
+            font-weight: 600;
+            border: 1px solid #e0e0e0;
         }
         
-        .export-btn i {
-            font-size: 16px;
+        .example-text {
+            background: #fafafa;
+            padding: 0.8rem;
+            border-radius: 14px;
+            direction: ltr;
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            border-right: 3px solid #111;
+            font-family: monospace;
+            color: #1a1a1a;
+            word-break: break-word;
         }
         
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 20px;
-            animation: fadeInUp 0.6s ease-out;
+        .example-translation {
+            background: #f5f5f5;
+            padding: 0.6rem 0.8rem;
+            border-radius: 12px;
+            direction: rtl;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 12px;
+            border-right: 2px solid #aaa;
+            font-weight: 500;
         }
         
-        .form-container h3 {
-            margin-top: 0;
-            color: var(--text-color);
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
         
-        .form-container h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 2px;
+        /* أزرار البطاقة - حجم أكبر */
+        .listen-button, .next-sentence-btn {
+            border: none;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .alert {
-            padding: 12px;
-            border-radius: 6px;
-            margin: 12px 0;
-            font-weight: bold;
-            display: none;
-            animation: fadeIn 0.5s ease-out;
+        .listen-button i, .next-sentence-btn i {
             font-size: 0.9rem;
         }
         
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        .listen-button {
+            background: #f0f0f0;
+            color: #444;
+            border: 1px solid #ddd;
         }
         
-        .alert-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+        .listen-button:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
         }
         
-        .loader {
-            display: none;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary-color);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 15px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .progress-container {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin: 15px 0;
-            height: 10px;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 10px;
-            transition: width 0.5s ease;
-        }
-        
-        .floating-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
+        .next-sentence-btn {
+            background: #111;
             color: white;
-            border: none;
-            font-size: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
+        }
+        
+        .next-sentence-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        .practice-input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 50px;
+            border: 2px solid #e0e0e0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            direction: ltr;
+            text-align: left;
+            transition: all 0.2s;
+            background: white;
+            color: #1a1a1a;
+        }
+        
+        .practice-input:focus {
+            outline: none;
+            border-color: #111;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+        }
+        
+        .practice-input::placeholder {
+            color: #bbb;
+        }
+        
+        .feedback-row {
+            margin-top: 12px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 100;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
-        .floating-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        .action-buttons {
+            display: flex;
+            gap: 10px;
         }
         
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
+        /* أزرار التحقق وإعادة الكلمة - حجم أكبر */
+        .check-btn, .retry-btn {
+            border: none;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        [data-animate].animated {
-            opacity: 1;
-            transform: translateY(0);
+        .check-btn i, .retry-btn i {
+            font-size: 0.9rem;
         }
         
-        @media print {
-            .no-print, .action-btns, .floating-btn {
-                display: none !important;
-            }
-            
-            body {
-                background-color: white;
-                font-size: 12pt;
-            }
-            
-            .container {
-                width: 100%;
-                padding: 0;
-            }
-            
-            table {
-                page-break-inside: auto;
-                font-size: 10pt;
-            }
-            
-            tr {
-                page-break-inside: avoid;
-                page-break-after: auto;
-            }
-            
-            .stat-box {
-                box-shadow: none;
-                border: 1px solid #ddd;
+        .check-btn {
+            background: #111;
+            color: white;
+        }
+        
+        .check-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        .retry-btn {
+            background: #f0f0f0;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+        
+        .retry-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .correct-msg {
+            background: #e8f5e8;
+            color: #2d6a2d;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .wrong-msg {
+            background: #f5e8e8;
+            color: #a55a5a;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .neutral-msg {
+            background: #f5f5f5;
+            color: #888;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .word-card.completed .card-front,
+        .word-card.completed .card-back {
+            background: #fafafa;
+            border-color: #ccc;
+        }
+        
+        .completion-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2d6a2d;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .global-footer-bar {
+            background: white;
+            border-radius: 20px;
+            padding: 0.8rem 1.2rem;
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .reset-all-btn {
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #444;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .reset-all-btn:hover {
+            background: #e8e8e8;
+            transform: translateY(-1px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.65rem;
+            color: #aaa;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 1000px) {
+            .cards-grid { 
+                grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
             }
         }
         
-        /* تحسينات للهواتف والأجهزة اللوحية */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .cards-grid { 
+                grid-template-columns: 1fr; 
             }
-            
-            .welcome-message {
-                padding: 15px;
-                margin: 15px 0;
+            .controls-bar { 
+                flex-direction: column; 
+                align-items: stretch; 
             }
-            
-            .welcome-message h1 {
-                font-size: 1.5rem;
+            .search-wrapper { 
+                width: 100%; 
             }
-            
-            .report-title {
-                font-size: 1.3rem;
-                margin: 15px 0;
+            .card-word-large { 
+                font-size: 1.5rem; 
             }
-            
-            .tab-btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
+            .card-front, .card-back {
+                min-height: 400px;
             }
-            
-            table {
-                font-size: 0.85rem;
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
+            .flip-card-inner {
+                min-height: 400px;
             }
-            
-            th, td {
-                padding: 8px;
+            .main-container {
+                padding: 0 1rem;
+                margin: 1rem auto;
             }
-            
-            .action-btns {
-                flex-direction: column;
-            }
-            
-            .action-btns .btn {
-                width: 100%;
-                margin: 2px 0;
-                padding: 6px;
-                font-size: 0.85rem;
-            }
-            
-            .stat-box {
-                padding: 12px;
-            }
-            
-            .stat-value {
-                font-size: 1.5rem;
-            }
-            
-            .export-options {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .form-container {
-                padding: 15px;
+            .listen-button, .next-sentence-btn, .check-btn, .retry-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
             }
         }
         
-        /* تحسينات للشاشات الصغيرة جدًا */
         @media (max-width: 480px) {
-            .welcome-message h1 {
-                font-size: 1.3rem;
+            .card-word-large { 
+                font-size: 1.3rem; 
             }
-            
-            .report-title {
-                font-size: 1.2rem;
+            .example-text {
+                font-size: 0.75rem;
             }
-            
-            .tab-content {
-                padding: 10px;
+            .button-group {
+                width: 100%;
+                justify-content: space-between;
             }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
+            .listen-button, .next-sentence-btn {
+                flex: 1;
+                justify-content: center;
             }
-            
-            .export-options {
-                grid-template-columns: 1fr;
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
             }
-            
-            .form-group {
-                margin-bottom: 12px;
+            .check-btn, .retry-btn {
+                flex: 1;
+                justify-content: center;
             }
-            
-            input, select, textarea {
-                padding: 8px;
-                font-size: 0.9rem;
-            }
-            
-            .btn {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
+        }
+        
+        .shake-input {
+            animation: shake 0.12s ease-in-out 0s 2;
+            border-color: #a55a5a !important;
+            background: #fef5f5 !important;
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            75% { transform: translateX(3px); }
+            100% { transform: translateX(0); }
+        }
+        
+        i { pointer-events: none; }
+        button { font-family: inherit; }
+        
+        .flip-icon {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            font-size: 0.7rem;
+            color: #bbb;
+        }
+        
+        .card-back::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .card-back::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .card-back::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
-    <button class="floating-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <div class="container">
-        <div class="welcome-message" data-animate>
-            <h1>مرحباً بكم في نظام المتابعة الشهرية</h1>
-            <p>نظام متكامل لإدارة التقارير والمهام الشهرية</p>
+
+<header class="site-header">
+    <div class="header-inner">
+        <button class="back-arrow-btn" id="backArrowBtn"><i class="fas fa-arrow-right"></i> رجوع</button>
+        <div class="site-name">3Alearning</div>
+    </div>
+</header>
+
+<main class="main-container">
+    <div class="controls-bar">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">الكل</button>
         </div>
-        
-        <div class="report-title" data-animate>
-            <h2>تقرير متابعة شهري</h2>
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="بحث بالكلمة أو المعنى...">
         </div>
-        
-        <div class="tabs" data-animate>
-            <button class="tab-btn active" onclick="openTab(event, 'tasksTab')">
-                <i class="fas fa-tasks"></i> قائمة المهمات
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'assignmentsTab')">
-                <i class="fas fa-clipboard-list"></i> قائمة التكليف
-            </button>
-        </div>
-        
-        <div id="tasksTab" class="tab-content active">
-            <div id="taskAlert" class="alert alert-success"></div>
-            
-            <div class="form-container" data-animate>
-                <h3><i class="fas fa-plus-circle"></i> إضافة مهمة جديدة</h3>
-                <form id="taskForm">
-                    <div class="form-group">
-                        <label for="taskName"><i class="fas fa-tasks"></i> المهمة</label>
-                        <input type="text" id="taskName" required placeholder="أدخل اسم المهمة">
-                    </div>
-                    <div class="form-group">
-                        <label for="taskStatus"><i class="fas fa-info-circle"></i> حالة التنفيذ</label>
-                        <select id="taskStatus" required>
-                            <option value="تم التنفيذ">تم التنفيذ</option>
-                            <option value="جاري التنفيذ">جاري التنفيذ</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="taskNotes"><i class="fas fa-sticky-note"></i> الملاحظات</label>
-                        <textarea id="taskNotes" rows="3" placeholder="أدخل أي ملاحظات هنا"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="taskAttachment"><i class="fas fa-paperclip"></i> إرفاق ملف</label>
-                        <input type="file" id="taskAttachment">
-                    </div>
-                    <button type="button" class="btn btn-click-effect" onclick="addTask()">
-                        <i class="fas fa-save"></i> حفظ المهمة
-                    </button>
-                    <div id="taskLoader" class="loader"></div>
-                </form>
-            </div>
-            
-            <h3 data-animate><i class="fas fa-list"></i> قائمة المهمات</h3>
-            <div class="progress-container" data-animate>
-                <div class="progress-bar" id="taskProgress"></div>
-            </div>
-            <table id="tasksTable" data-animate>
-                <thead>
-                    <tr>
-                        <th>مسلسل</th>
-                        <th>المهمة</th>
-                        <th>حالة التنفيذ</th>
-                        <th>الملاحظات</th>
-                        <th class="no-print">الإجراءات</th>
-                    </tr>
-                </thead>
-                <tbody id="tasksTableBody">
-                    <!-- سيتم ملؤها بالبيانات عبر JavaScript -->
-                </tbody>
-            </table>
-            
-            <div class="stats-container">
-                <div class="stat-box" data-animate>
-                    <h3><i class="fas fa-tasks"></i> إجمالي المهام</h3>
-                    <div class="stat-value" id="totalTasks">0</div>
-                    <p>جميع المهام المسجلة</p>
-                </div>
-                <div class="stat-box" data-animate>
-                    <h3><i class="fas fa-check-circle"></i> تم التنفيذ</h3>
-                    <div class="stat-value" id="completedTasks">0</div>
-                    <p>المهام المكتملة</p>
-                </div>
-                <div class="stat-box" data-animate>
-                    <h3><i class="fas fa-spinner"></i> جاري التنفيذ</h3>
-                    <div class="stat-value" id="inProgressTasks">0</div>
-                    <p>المهام قيد التنفيذ</p>
-                </div>
-            </div>
-            
-            <div class="export-options">
-                <button class="export-btn" onclick="printTasks()" data-animate>
-                    <i class="fas fa-print"></i> طباعة المهام
-                </button>
-                <button class="export-btn" onclick="exportToExcel('tasksTable', 'المهام')" data-animate>
-                    <i class="fas fa-file-excel"></i> تصدير إلى Excel
-                </button>
-                <button class="export-btn" onclick="exportToPDF('tasksTable', 'المهام')" data-animate>
-                    <i class="fas fa-file-pdf"></i> تصدير إلى PDF
-                </button>
-                <button class="export-btn" onclick="shareReport('tasks')" data-animate>
-                    <i class="fas fa-share-alt"></i> مشاركة التقرير
-                </button>
-            </div>
-        </div>
-        
-        <div id="assignmentsTab" class="tab-content">
-            <div id="assignmentAlert" class="alert alert-success"></div>
-            
-            <div class="form-container" data-animate>
-                <h3><i class="fas fa-plus-circle"></i> إضافة تكليف جديد</h3>
-                <form id="assignmentForm">
-                    <div class="form-group">
-                        <label for="reportName"><i class="fas fa-file-alt"></i> اسم التقرير</label>
-                        <input type="text" id="reportName" required placeholder="أدخل اسم التقرير">
-                    </div>
-                    <div class="form-group">
-                        <label for="department"><i class="fas fa-building"></i> الإدارة</label>
-                        <select id="department" required>
-                            <option value="">اختر الإدارة</option>
-                            <option value="الإدارة المالية">الإدارة المالية</option>
-                            <option value="الإدارة التجارية">الإدارة التجارية</option>
-                            <option value="الإدارة التسويقية">الإدارة التسويقية</option>
-                            <option value="إدارة المشتريات">إدارة المشتريات</option>
-                            <option value="إدارة المبيعات">إدارة المبيعات</option>
-                            <option value="إدارة الصيانة">إدارة الصيانة</option>
-                            <option value="أخرى">أخرى</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="employee"><i class="fas fa-user-tie"></i> الموظف المختص</label>
-                        <input type="text" id="employee" required placeholder="أدخل اسم الموظف">
-                    </div>
-                    <div class="form-group">
-                        <label for="reportDate"><i class="fas fa-calendar-alt"></i> التاريخ</label>
-                        <input type="date" id="reportDate" required>
-                    </div>
-                    <button type="button" class="btn btn-click-effect" onclick="addAssignment()">
-                        <i class="fas fa-save"></i> حفظ التكليف
-                    </button>
-                    <div id="assignmentLoader" class="loader"></div>
-                </form>
-            </div>
-            
-            <h3 data-animate><i class="fas fa-list"></i> قائمة التكليف</h3>
-            <table id="assignmentsTable" data-animate>
-                <thead>
-                    <tr>
-                        <th>اسم التقرير</th>
-                        <th>الإدارة</th>
-                        <th>الموظف المختص</th>
-                        <th>التاريخ</th>
-                        <th class="no-print">الإجراءات</th>
-                    </tr>
-                </thead>
-                <tbody id="assignmentsTableBody">
-                    <!-- سيتم ملؤها بالبيانات عبر JavaScript -->
-                </tbody>
-            </table>
-            
-            <div class="export-options">
-                <button class="export-btn" onclick="printAssignments()" data-animate>
-                    <i class="fas fa-print"></i> طباعة التكليفات
-                </button>
-                <button class="export-btn" onclick="exportToExcel('assignmentsTable', 'التكليفات')" data-animate>
-                    <i class="fas fa-file-excel"></i> تصدير إلى Excel
-                </button>
-                <button class="export-btn" onclick="exportToPDF('assignmentsTable', 'التكليفات')" data-animate>
-                    <i class="fas fa-file-pdf"></i> تصدير إلى PDF
-                </button>
-                <button class="export-btn" onclick="shareReport('assignments')" data-animate>
-                    <i class="fas fa-share-alt"></i> مشاركة التقرير
-                </button>
-            </div>
-        </div>
+        <div class="progress-indicator" id="progressText">تم الإتقان: 0 / 500 جملة</div>
     </div>
 
-    <script>
-        // تهيئة jsPDF
-        const { jsPDF } = window.jspdf;
+    <div class="cards-grid" id="cardsGrid"></div>
+
+    <div class="global-footer-bar">
+        <span><strong>اضغط على البطاقة لقلبها</strong> | كل كلمة تحتوي على 5 جمل + ترجمة عربية</span>
+        <button class="reset-all-btn" id="resetAllBtn"><i class="fas fa-undo-alt"></i> إعادة تعيين</button>
+    </div>
+</main>
+<footer>3Alearning — نظام بطاقات تفاعلي لبناء المفردات المهنية | اقلب البطاقة وابدأ التعلم</footer>
+
+<script>
+    // قائمة الكلمات المدمجة (الكلمات الأصلية + الكلمات الجديدة)
+    const allWordsList = [
+        // الكلمات الأساسية الأولى
+        { word: "Introduce", translation: "يُعرّف", level: "general" },
+        { word: "Opportunity", translation: "فرصة", level: "general" },
+        { word: "Pleasure", translation: "سرور / بهجة", level: "general" },
+        { word: "Background", translation: "خلفية (تعليمية أو مهنية)", level: "general" },
+        { word: "Originally", translation: "في الأصل", level: "general" },
+        { word: "Currently", translation: "حالياً", level: "general" },
+        { word: "Based in", translation: "مقيم في / مستقر في", level: "general" },
+        { word: "Briefly", translation: "باختصار", level: "general" },
+        { word: "Experience", translation: "خبرة", level: "general" },
+        { word: "Identity", translation: "الهوية / الشخصية", level: "general" },
+        { word: "Value", translation: "قيمة (تقديم قيمة للمكان)", level: "general" },
         
-        let tasks = [];
-        let assignments = [];
-        let currentEditTaskId = null;
-        let currentEditAssignmentId = null;
+        // كلمات تعليمية وأكاديمية
+        { word: "Senior student", translation: "طالب في السنة الأخيرة", level: "general" },
+        { word: "Faculty", translation: "كلية", level: "general" },
+        { word: "Major", translation: "التخصص الرئيسي", level: "general" },
+        { word: "Specialization", translation: "التخصص الدقيق", level: "general" },
+        { word: "Degree", translation: "شهادة جامعية", level: "general" },
+        { word: "Project", translation: "مشروع", level: "general" },
+        { word: "Foundation", translation: "أساس / قاعدة معرفية", level: "general" },
+        { word: "Studies", translation: "دراسات / علوم", level: "general" },
+        { word: "Academic", translation: "أكاديمي", level: "general" },
         
-        function openTab(evt, tabName) {
-            const tabContents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
+        // مهارات التواصل
+        { word: "Listening", translation: "الاستماع (الإنصات)", level: "general" },
+        { word: "Persuasion", translation: "الإقناع", level: "general" },
+        { word: "Customer-centric", translation: "التركيز على إرضاء العميل", level: "professional" },
+        { word: "Support", translation: "دعم / مساعدة", level: "general" },
+        { word: "Interaction", translation: "التفاعل (مع الآخرين)", level: "general" },
+        { word: "Negotiation", translation: "التفاوض", level: "professional" },
+        { word: "Relationship", translation: "علاقة (بناء علاقات مع العملاء)", level: "general" },
+        { word: "Public Relations (PR)", translation: "العلاقات العامة", level: "professional" },
+        { word: "Assisting", translation: "تقديم العون / المساعدة", level: "general" },
+        
+        // مهارات إدارية وتحليلية
+        { word: "Management", translation: "الإدارة", level: "professional" },
+        { word: "Analytics", translation: "تحليلات (ربط البيانات بالقرارات)", level: "professional" },
+        { word: "Data", translation: "بيانات", level: "general" },
+        { word: "Analysis", translation: "تحليل", level: "general" },
+        { word: "Facility", translation: "منشأة / مكان عمل", level: "general" },
+        { word: "Organization", translation: "منظمة / شركة", level: "professional" },
+        { word: "Industry", translation: "مجال الصناعة / سوق العمل", level: "professional" },
+        { word: "Corporate", translation: "شركات / نظام مؤسسي", level: "professional" },
+        { word: "Strategy", translation: "استراتيجية / خطة", level: "professional" },
+        
+        // أفعال عملية
+        { word: "Coordinate", translation: "ينسق", level: "general" },
+        { word: "Handle", translation: "يتعامل مع (مشاكل أو مهام)", level: "general" },
+        { word: "Achieve", translation: "يحقق (هدف)", level: "general" },
+        { word: "Develop", translation: "يُطور", level: "general" },
+        { word: "Improve", translation: "يُحسن", level: "general" },
+        { word: "Implement", translation: "ينفذ / يطبق", level: "professional" },
+        { word: "Optimize", translation: "يرفع الكفاءة لأعلى درجة", level: "professional" },
+        { word: "Launch", translation: "يطلق (مشروع أو موقع)", level: "professional" },
+        { word: "Contribute", translation: "يساهم", level: "general" },
+        
+        // الصفات الشخصية الإيجابية
+        { word: "Detail-oriented", translation: "دقيق ومهتم بالتفاصيل", level: "general" },
+        { word: "Team player", translation: "محب للعمل الجماعي", level: "general" },
+        { word: "Flexible", translation: "مرن (في المواعيد أو الظروف)", level: "general" },
+        { word: "Punctual", translation: "منضبط في المواعيد تماماً", level: "general" },
+        { word: "Reliable", translation: "موثوق فيه / يُعتمد عليه", level: "general" },
+        { word: "Dedicated", translation: "مخلص / متفانٍ في العمل", level: "general" },
+        { word: "Organized", translation: "منظم", level: "general" },
+        { word: "Responsible", translation: "مسؤول", level: "general" },
+        { word: "Patient", translation: "صبور", level: "general" },
+        
+        // صفات التحفيز والإنجاز
+        { word: "Self-motivated", translation: "ذاتي التحفيز", level: "general" },
+        { word: "Results-driven", translation: "موجه بالنتائج", level: "professional" },
+        { word: "Goal-oriented", translation: "موجه بالأهداف", level: "professional" },
+        { word: "Creative", translation: "مبدع / مبتكر", level: "general" },
+        { word: "Ambitious", translation: "طموح", level: "general" },
+        { word: "Enthusiastic", translation: "حماسي / مليء بالنشاط", level: "general" },
+        { word: "Proactive", translation: "مبادر (يتحرك من نفسه)", level: "general" },
+        { word: "Efficient", translation: "كفء (ينجز بسرعة وجودة)", level: "general" },
+        { word: "Productive", translation: "إنتاجي / ينجز الكثير", level: "general" },
+        
+        // المهارات اللغوية والتقنية
+        { word: "Conversational", translation: "قادر على المحادثة", level: "general" },
+        { word: "Intermediate", translation: "متوسط", level: "general" },
+        { word: "Advanced", translation: "متقدم", level: "general" },
+        { word: "Mastering", translation: "إتقان / احتراف مهارة", level: "professional" },
+        { word: "Command", translation: "التمكن (Good command of English)", level: "general" },
+        { word: "Tech-savvy", translation: "بارع في التكنولوجيا والبرامج", level: "professional" },
+        { word: "Bilingual", translation: "متحدث بلغتين", level: "general" },
+        { word: "Skillset", translation: "مجموعة المهارات", level: "general" },
+        { word: "Proficiency", translation: "كفاءة / براعة", level: "general" },
+        
+        // التسويق والمحتوى الرقمي
+        { word: "Content", translation: "محتوى", level: "professional" },
+        { word: "SEO", translation: "تهيئة محركات البحث", level: "professional" },
+        { word: "Marketing", translation: "التسويق", level: "professional" },
+        { word: "Engagement", translation: "التفاعل والمشاركة", level: "professional" },
+        { word: "Platform", translation: "منصة إلكترونية", level: "professional" },
+        { word: "Audience", translation: "الجمهور / المتابعين", level: "professional" },
+        { word: "Trends", translation: "الاتجاهات السائدة / التريند", level: "professional" },
+        { word: "Traffic", translation: "الزيارات المهتمة بالمحتوى", level: "professional" },
+        { word: "Update", translation: "يواكب / يحدّث", level: "general" },
+        
+        // التطوير المهني والطموح
+        { word: "Aspire to", translation: "يطمح إلى", level: "general" },
+        { word: "Accreditation", translation: "اعتماد دولي أو رسمي", level: "professional" },
+        { word: "Professional", translation: "محترف", level: "professional" },
+        { word: "Challenge", translation: "تحدي", level: "general" },
+        { word: "Growth", translation: "نمو / تطور مهني", level: "professional" },
+        { word: "Long-term", translation: "طويل المدى", level: "general" },
+        { word: "Short-term", translation: "قصير المدى", level: "general" },
+        { word: "Aspiration", translation: "تطلع / طموح مستقبلي", level: "general" }
+    ];
+    
+    // دالة لبناء الجمل مع ترجمتها العربية لكل كلمة
+    function buildSentenceSetWithTranslation(wordObj) {
+        const w = wordObj.word;
+        
+        // جمل مخصصة لبعض الكلمات المهمة
+        const customSets = {
+            "Introduce": {
+                en: ["Let me introduce myself.", "I would like to introduce my background.", "Allow me to introduce my skills.", "I introduce new ideas to the team.", "Let me introduce my colleague."],
+                ar: ["دعني أعرف بنفسي.", "أود أن أعرف بخلفيتي.", "اسمح لي أن أعرف بمهاراتي.", "أقدم أفكار جديدة للفريق.", "دعني أعرف بزميلي."]
+            },
+            "Opportunity": {
+                en: ["This is a great opportunity.", "I seize every learning opportunity.", "Opportunity comes with preparation.", "I appreciate this career opportunity.", "Every challenge is an opportunity."],
+                ar: ["هذه فرصة رائعة.", "أغتنم كل فرصة للتعلم.", "الفرصة تأتي مع الاستعداد.", "أقدر فرصة العمل هذه.", "كل تحدٍ هو فرصة."]
+            },
+            "Value": {
+                en: ["I add value to my workplace.", "Value is what I focus on.", "Creating value for customers.", "My work brings value to the team.", "Value drives my decisions."],
+                ar: ["أضيف قيمة لمكان عملي.", "القيمة هي ما أركز عليه.", "خلق قيمة للعملاء.", "عملي يجلب قيمة للفريق.", "القيمة تقود قراراتي."]
+            },
+            "Experience": {
+                en: ["I have years of experience.", "My experience includes project management.", "Experience taught me many lessons.", "I gained experience from every role.", "Experience is my best teacher."],
+                ar: ["لدي سنوات من الخبرة.", "خبرتي تشمل إدارة المشاريع.", "الخبرة علمتني دروساً كثيرة.", "اكتسبت خبرة من كل دور.", "الخبرة هي أفضل معلم لي."]
             }
-            
-            const tabButtons = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+        };
+        
+        if (customSets[w]) {
+            return { en: [...customSets[w].en], ar: [...customSets[w].ar] };
         }
         
-        function showAlert(type, message, containerId) {
-            const alert = document.getElementById(containerId);
-            alert.textContent = message;
-            alert.className = `alert alert-${type}`;
-            alert.style.display = 'block';
-            
-            setTimeout(() => {
-                alert.style.display = 'none';
-            }, 3000);
-        }
+        // جمل عامة لكل كلمة
+        const baseEn = [
+            `My ${w} is very important to me.`,
+            `I take my ${w} seriously every day.`,
+            `${w} defines who I am as a person.`,
+            `I always work on improving my ${w}.`,
+            `My ${w} helps me achieve success.`
+        ];
         
-        function addTask() {
-            const taskName = document.getElementById("taskName").value;
-            const taskStatus = document.getElementById("taskStatus").value;
-            const taskNotes = document.getElementById("taskNotes").value;
-            const taskAttachment = document.getElementById("taskAttachment").files[0];
-            
-            if (!taskName) {
-                showAlert('error', 'الرجاء إدخال اسم المهمة', 'taskAlert');
-                return;
-            }
-            
-            const loader = document.getElementById("taskLoader");
-            loader.style.display = 'block';
-            
-            setTimeout(() => {
-                const taskId = Date.now();
-                
-                if (currentEditTaskId) {
-                    const taskIndex = tasks.findIndex(task => task.id === currentEditTaskId);
-                    if (taskIndex !== -1) {
-                        tasks[taskIndex] = {
-                            id: currentEditTaskId,
-                            name: taskName,
-                            status: taskStatus,
-                            notes: taskNotes,
-                            attachment: taskAttachment || tasks[taskIndex].attachment
-                        };
-                    }
-                    currentEditTaskId = null;
-                    document.getElementById("taskForm").querySelector("button").innerHTML = '<i class="fas fa-save"></i> حفظ المهمة';
-                    showAlert('success', 'تم تحديث المهمة بنجاح', 'taskAlert');
-                } else {
-                    tasks.push({
-                        id: taskId,
-                        name: taskName,
-                        status: taskStatus,
-                        notes: taskNotes,
-                        attachment: taskAttachment
-                    });
-                    showAlert('success', 'تم إضافة المهمة بنجاح', 'taskAlert');
-                }
-                
-                updateTasksTable();
-                updateStats();
-                document.getElementById("taskForm").reset();
-                loader.style.display = 'none';
-                
-                const table = document.getElementById("tasksTable");
-                table.style.animation = 'none';
-                setTimeout(() => {
-                    table.style.animation = 'shake 0.5s';
-                }, 10);
-            }, 1000);
-        }
+        const baseAr = [
+            `${w} مهم جداً بالنسبة لي.`,
+            `آخذ ${w} الخاص بي على محمل الجد كل يوم.`,
+            `${w} يحدد من أنا كشخص.`,
+            `أعمل دائماً على تحسين ${w} الخاص بي.`,
+            `${w} الخاص بي يساعدني على تحقيق النجاح.`
+        ];
         
-        function updateTasksTable() {
-            const tableBody = document.getElementById("tasksTableBody");
-            tableBody.innerHTML = "";
-            
-            tasks.forEach((task, index) => {
-                const row = document.createElement("tr");
-                row.style.animationDelay = `${index * 0.1}s`;
-                row.classList.add('animated');
-                
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${task.name}</td>
-                    <td>
-                        <span class="status-badge ${task.status === 'تم التنفيذ' ? 'completed' : 'in-progress'}">
-                            ${task.status}
-                        </span>
-                    </td>
-                    <td>${task.notes || '-'}</td>
-                    <td class="action-btns no-print">
-                        <button class="btn btn-primary" onclick="editTask(${task.id})">
-                            <i class="fas fa-edit"></i> تعديل
-                        </button>
-                        <button class="btn btn-danger" onclick="deleteTask(${task.id})">
-                            <i class="fas fa-trash"></i> حذف
-                        </button>
-                    </td>
-                `;
-                
-                tableBody.appendChild(row);
-            });
-            
-            updateProgressBar();
-        }
-        
-        function updateProgressBar() {
-            const totalTasks = tasks.length;
-            const completedTasks = tasks.filter(task => task.status === "تم التنفيذ").length;
-            const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
-            document.getElementById("taskProgress").style.width = `${progress}%`;
-        }
-        
-        function editTask(taskId) {
-            const task = tasks.find(t => t.id === taskId);
-            if (task) {
-                document.getElementById("taskName").value = task.name;
-                document.getElementById("taskStatus").value = task.status;
-                document.getElementById("taskNotes").value = task.notes || '';
-                currentEditTaskId = taskId;
-                document.getElementById("taskForm").querySelector("button").innerHTML = '<i class="fas fa-sync-alt"></i> تحديث المهمة';
-                document.getElementById("taskForm").scrollIntoView({ behavior: 'smooth' });
-                
-                const form = document.getElementById("taskForm");
-                form.style.animation = 'none';
-                setTimeout(() => {
-                    form.style.animation = 'pulse 0.5s';
-                }, 10);
-            }
-        }
-        
-        function deleteTask(taskId) {
-            if (confirm("هل أنت متأكد من حذف هذه المهمة؟")) {
-                const loader = document.getElementById("taskLoader");
-                loader.style.display = 'block';
-                
-                setTimeout(() => {
-                    tasks = tasks.filter(task => task.id !== taskId);
-                    updateTasksTable();
-                    updateStats();
-                    showAlert('success', 'تم حذف المهمة بنجاح', 'taskAlert');
-                    loader.style.display = 'none';
-                }, 800);
-            }
-        }
-        
-        function updateStats() {
-            document.getElementById("totalTasks").textContent = tasks.length;
-            document.getElementById("completedTasks").textContent = tasks.filter(task => task.status === "تم التنفيذ").length;
-            document.getElementById("inProgressTasks").textContent = tasks.filter(task => task.status === "جاري التنفيذ").length;
-            
-            animateValue("totalTasks", 0, tasks.length, 1000);
-            animateValue("completedTasks", 0, tasks.filter(task => task.status === "تم التنفيذ").length, 1000);
-            animateValue("inProgressTasks", 0, tasks.filter(task => task.status === "جاري التنفيذ").length, 1000);
-        }
-        
-        function animateValue(id, start, end, duration) {
-            const obj = document.getElementById(id);
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        function addAssignment() {
-            const reportName = document.getElementById("reportName").value;
-            const department = document.getElementById("department").value;
-            const employee = document.getElementById("employee").value;
-            const reportDate = document.getElementById("reportDate").value;
-            
-            if (!reportName || !department || !employee || !reportDate) {
-                showAlert('error', 'الرجاء ملء جميع الحقول المطلوبة', 'assignmentAlert');
-                return;
-            }
-            
-            const loader = document.getElementById("assignmentLoader");
-            loader.style.display = 'block';
-            
-            setTimeout(() => {
-                const assignmentId = Date.now();
-                
-                if (currentEditAssignmentId) {
-                    const assignmentIndex = assignments.findIndex(a => a.id === currentEditAssignmentId);
-                    if (assignmentIndex !== -1) {
-                        assignments[assignmentIndex] = {
-                            id: currentEditAssignmentId,
-                            reportName,
-                            department,
-                            employee,
-                            date: reportDate
-                        };
-                    }
-                    currentEditAssignmentId = null;
-                    document.getElementById("assignmentForm").querySelector("button").innerHTML = '<i class="fas fa-save"></i> حفظ التكليف';
-                    showAlert('success', 'تم تحديث التكليف بنجاح', 'assignmentAlert');
-                } else {
-                    assignments.push({
-                        id: assignmentId,
-                        reportName,
-                        department,
-                        employee,
-                        date: reportDate
-                    });
-                    showAlert('success', 'تم إضافة التكليف بنجاح', 'assignmentAlert');
-                }
-                
-                updateAssignmentsTable();
-                document.getElementById("assignmentForm").reset();
-                loader.style.display = 'none';
-                
-                const table = document.getElementById("assignmentsTable");
-                table.style.animation = 'none';
-                setTimeout(() => {
-                    table.style.animation = 'shake 0.5s';
-                }, 10);
-            }, 1000);
-        }
-        
-        function updateAssignmentsTable() {
-            const tableBody = document.getElementById("assignmentsTableBody");
-            tableBody.innerHTML = "";
-            
-            assignments.forEach((assignment, index) => {
-                const row = document.createElement("tr");
-                row.style.animationDelay = `${index * 0.1}s`;
-                row.classList.add('animated');
-                
-                row.innerHTML = `
-                    <td>${assignment.reportName}</td>
-                    <td>${assignment.department}</td>
-                    <td>${assignment.employee}</td>
-                    <td>${formatDate(assignment.date)}</td>
-                    <td class="action-btns no-print">
-                        <button class="btn btn-primary" onclick="editAssignment(${assignment.id})">
-                            <i class="fas fa-edit"></i> تعديل
-                        </button>
-                        <button class="btn btn-danger" onclick="deleteAssignment(${assignment.id})">
-                            <i class="fas fa-trash"></i> حذف
-                        </button>
-                    </td>
-                `;
-                
-                tableBody.appendChild(row);
-            });
-        }
-        
-        function formatDate(dateString) {
-            if (!dateString) return '-';
-            const date = new Date(dateString);
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return date.toLocaleDateString('ar-EG', options);
-        }
-        
-        function editAssignment(assignmentId) {
-            const assignment = assignments.find(a => a.id === assignmentId);
-            if (assignment) {
-                document.getElementById("reportName").value = assignment.reportName;
-                document.getElementById("department").value = assignment.department;
-                document.getElementById("employee").value = assignment.employee;
-                document.getElementById("reportDate").value = assignment.date.split('T')[0];
-                currentEditAssignmentId = assignmentId;
-                document.getElementById("assignmentForm").querySelector("button").innerHTML = '<i class="fas fa-sync-alt"></i> تحديث التكليف';
-                document.getElementById("assignmentForm").scrollIntoView({ behavior: 'smooth' });
-                
-                const form = document.getElementById("assignmentForm");
-                form.style.animation = 'none';
-                setTimeout(() => {
-                    form.style.animation = 'pulse 0.5s';
-                }, 10);
-            }
-        }
-        
-        function deleteAssignment(assignmentId) {
-            if (confirm("هل أنت متأكد من حذف هذا التكليف؟")) {
-                const loader = document.getElementById("assignmentLoader");
-                loader.style.display = 'block';
-                
-                setTimeout(() => {
-                    assignments = assignments.filter(a => a.id !== assignmentId);
-                    updateAssignmentsTable();
-                    showAlert('success', 'تم حذف التكليف بنجاح', 'assignmentAlert');
-                    loader.style.display = 'none';
-                }, 800);
-            }
-        }
-        
-        function printTasks() {
-            const printBtn = event.target;
-            printBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير...';
-            
-            setTimeout(() => {
-                window.print();
-                printBtn.innerHTML = '<i class="fas fa-print"></i> طباعة المهام';
-            }, 500);
-        }
-        
-        function printAssignments() {
-            const printBtn = event.target;
-            printBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير...';
-            
-            setTimeout(() => {
-                window.print();
-                printBtn.innerHTML = '<i class="fas fa-print"></i> طباعة التكليفات';
-            }, 500);
-        }
-        
-        function exportToExcel(tableId, filename) {
-            const table = document.getElementById(tableId);
-            let html = '<table>';
-            
-            table.querySelectorAll('tr').forEach((row, rowIndex) => {
-                if (rowIndex === 0) {
-                    html += '<tr>';
-                    row.querySelectorAll('th').forEach(th => {
-                        if (!th.classList.contains('no-print')) {
-                            html += `<th>${th.textContent}</th>`;
-                        }
-                    });
-                    html += '</tr>';
-                } else {
-                    html += '<tr>';
-                    row.querySelectorAll('td').forEach((td, cellIndex) => {
-                        if (!td.classList.contains('no-print')) {
-                            html += `<td>${td.textContent}</td>`;
-                        }
-                    });
-                    html += '</tr>';
-                }
-            });
-            
-            html += '</table>';
-            
-            const exportBtn = event.target;
-            exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التصدير...';
-            
-            setTimeout(() => {
-                const blob = new Blob([html], { type: "application/vnd.ms-excel" });
-                const a = document.createElement("a");
-                a.href = URL.createObjectURL(blob);
-                a.download = `${filename}_${new Date().toLocaleDateString('ar-EG')}.xls`;
-                a.click();
-                
-                exportBtn.innerHTML = '<i class="fas fa-file-excel"></i> تصدير إلى Excel';
-                showAlert('success', 'تم التصدير إلى Excel بنجاح', tableId === 'tasksTable' ? 'taskAlert' : 'assignmentAlert');
-            }, 1000);
-        }
-        
-        function exportToPDF(tableId, filename) {
-            const exportBtn = event.target;
-            exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التصدير...';
-            
-            setTimeout(() => {
-                const table = document.getElementById(tableId);
-                const doc = new jsPDF();
-                
-                doc.setFont('Tajawal', 'normal');
-                doc.setFontSize(18);
-                doc.text(filename, 105, 15, { align: 'center' });
-                
-                const headers = [];
-                const rows = [];
-                
-                table.querySelectorAll('th').forEach(th => {
-                    if (!th.classList.contains('no-print')) {
-                        headers.push(th.textContent);
-                    }
-                });
-                
-                table.querySelectorAll('tbody tr').forEach(tr => {
-                    const rowData = [];
-                    tr.querySelectorAll('td').forEach((td, index) => {
-                        if (!td.classList.contains('no-print')) {
-                            rowData.push(td.textContent);
-                        }
-                    });
-                    if (rowData.length > 0) {
-                        rows.push(rowData);
-                    }
-                });
-                
-                doc.autoTable({
-                    head: [headers],
-                    body: rows,
-                    startY: 25,
-                    styles: {
-                        font: 'Tajawal',
-                        fontStyle: 'normal',
-                        textColor: [0, 0, 0],
-                        halign: 'right'
-                    },
-                    headStyles: {
-                        fillColor: [46, 204, 113],
-                        textColor: [255, 255, 255],
-                        fontStyle: 'bold'
-                    },
-                    alternateRowStyles: {
-                        fillColor: [249, 249, 249]
-                    }
-                });
-                
-                doc.save(`${filename}_${new Date().toLocaleDateString('ar-EG')}.pdf`);
-                
-                exportBtn.innerHTML = '<i class="fas fa-file-pdf"></i> تصدير إلى PDF';
-                showAlert('success', 'تم التصدير إلى PDF بنجاح', tableId === 'tasksTable' ? 'taskAlert' : 'assignmentAlert');
-            }, 500);
-        }
-        
-        function shareReport(type) {
-            const shareBtn = event.target;
-            shareBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير...';
-            
-            setTimeout(() => {
-                if (navigator.share) {
-                    let title, text;
-                    
-                    if (type === 'tasks') {
-                        title = "تقرير المهام الشهري";
-                        text = `إجمالي المهام: ${tasks.length}\nتم التنفيذ: ${tasks.filter(t => t.status === "تم التنفيذ").length}\nجاري التنفيذ: ${tasks.filter(t => t.status === "جاري التنفيذ").length}`;
-                    } else {
-                        title = "تقرير التكليفات الشهري";
-                        text = `إجمالي التكليفات: ${assignments.length}`;
-                    }
-                    
-                    navigator.share({
-                        title: title,
-                        text: text,
-                        url: window.location.href
-                    }).then(() => {
-                        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> مشاركة التقرير';
-                    }).catch(err => {
-                        console.error('Error sharing:', err);
-                        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> مشاركة التقرير';
-                        showAlert('error', 'فشلت عملية المشاركة', type === 'tasks' ? 'taskAlert' : 'assignmentAlert');
-                    });
-                } else {
-                    shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> مشاركة التقرير';
-                    const textToCopy = type === 'tasks' ?
-                        `تقرير المهام الشهري\nإجمالي المهام: ${tasks.length}\nتم التنفيذ: ${tasks.filter(t => t.status === "تم التنفيذ").length}\nجاري التنفيذ: ${tasks.filter(t => t.status === "جاري التنفيذ").length}` :
-                        `تقرير التكليفات الشهري\nإجمالي التكليفات: ${assignments.length}`;
-                    
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        showAlert('success', 'تم نسخ التقرير إلى الحافظة', type === 'tasks' ? 'taskAlert' : 'assignmentAlert');
-                    }).catch(err => {
-                        console.error('Failed to copy:', err);
-                        showAlert('error', 'فشل نسخ التقرير، يمكنك نسخه يدوياً', type === 'tasks' ? 'taskAlert' : 'assignmentAlert');
-                    });
-                }
-            }, 500);
-        }
-        
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('[data-animate]');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('animated');
-                }
-            });
-        }
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll();
-            
-            // بيانات أولية للعرض التوضيحي
-            tasks = [
-                { id: 1, name: "إعداد التقرير المالي", status: "تم التنفيذ", notes: "تم الانتهاء من التقرير قبل الموعد المحدد" },
-                { id: 2, name: "تحديث قاعدة البيانات", status: "جاري التنفيذ", notes: "في انتظار موافقة الإدارة" },
-                { id: 3, name: "مراجعة العقود", status: "جاري التنفيذ", notes: "" },
-                { id: 4, name: "تحليل بيانات المبيعات", status: "تم التنفيذ", notes: "تم إرسال النتائج للإدارة" },
-                { id: 5, name: "تطوير واجهة المستخدم", status: "جاري التنفيذ", notes: "قيد المراجعة النهائية" }
-            ];
-            
-            assignments = [
-                { id: 1, reportName: "التقرير المالي لشهر يوليو", department: "الإدارة المالية", employee: "أحمد محمد", date: "2023-07-15" },
-                { id: 2, reportName: "تحليل السوق", department: "الإدارة التسويقية", employee: "سارة عبدالله", date: "2023-07-20" },
-                { id: 3, reportName: "تقرير المبيعات الربع سنوي", department: "إدارة المبيعات", employee: "خالد سمير", date: "2023-07-25" },
-                { id: 4, reportName: "تقييم أداء الموظفين", department: "إدارة الموارد البشرية", employee: "نورا أحمد", date: "2023-07-30" }
-            ];
-            
-            updateTasksTable();
-            updateAssignmentsTable();
-            updateStats();
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes shake {
-                    0%, 100% { transform: translateX(0); }
-                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                    20%, 40%, 60%, 80% { transform: translateX(5px); }
-                }
-                
-                @keyframes pulse {
-                    0% { transform: scale(1); }
-                    50% { transform: scale(1.02); }
-                    100% { transform: scale(1); }
-                }
-                
-                .status-badge {
-                    padding: 5px 10px;
-                    border-radius: 20px;
-                    font-size: 14px;
-                    font-weight: bold;
-                }
-                
-                .status-badge.completed {
-                    background-color: #d4edda;
-                    color: #155724;
-                }
-                
-                .status-badge.in-progress {
-                    background-color: #fff3cd;
-                    color: #856404;
-                }
-            `;
-            document.head.appendChild(style);
+        return { en: baseEn, ar: baseAr };
+    }
+    
+    // إنشاء قاعدة البيانات الكاملة
+    let allItems = [];
+    allWordsList.forEach((item, idx) => {
+        const sentences = buildSentenceSetWithTranslation(item);
+        allItems.push({
+            id: idx,
+            word: item.word,
+            translation: item.translation,
+            level: item.level,
+            sentencesEn: sentences.en,
+            sentencesAr: sentences.ar
         });
-    </script>
+    });
+    
+    let completedPerWord = Array(allItems.length).fill().map(() => Array(5).fill(false));
+    let currentSentenceIndex = Array(allItems.length).fill(0);
+    let userAnswers = Array(allItems.length).fill().map(() => Array(5).fill(""));
+    let currentFilter = "all";
+    let searchWord = "";
+    
+    function updateStats() {
+        let totalCompleted = 0;
+        for (let i = 0; i < allItems.length; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (completedPerWord[i][j]) totalCompleted++;
+            }
+        }
+        document.getElementById("progressText").innerHTML = `تم الإتقان: ${totalCompleted} / ${allItems.length * 5} جملة`;
+        localStorage.setItem("self100_completed_sentences", JSON.stringify(completedPerWord));
+        localStorage.setItem("self100_current_sentence_idx", JSON.stringify(currentSentenceIndex));
+        localStorage.setItem("self100_answers_matrix", JSON.stringify(userAnswers));
+    }
+    
+    function speakSentence(text) {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+    }
+    
+    function verifyInput(wordId, sentencePos, inputField, feedbackSpan, cardElement) {
+        let target = allItems[wordId].sentencesEn[sentencePos].trim();
+        let userVal = inputField.value.trim();
+        let normalize = s => s.toLowerCase().replace(/\s+/g, ' ').replace(/[^\w\s]/g, '').trim();
+        
+        if (normalize(userVal) === normalize(target) && userVal.length > 0) {
+            if (!completedPerWord[wordId][sentencePos]) {
+                completedPerWord[wordId][sentencePos] = true;
+                feedbackSpan.innerHTML = `<span class="correct-msg"><i class="fas fa-check-circle"></i> إجابة صحيحة - تم إتقان الجملة</span>`;
+                updateStats();
+                let allSentencesCompleted = completedPerWord[wordId].every(v => v === true);
+                if (allSentencesCompleted) {
+                    cardElement.classList.add("completed");
+                    feedbackSpan.innerHTML = `<span class="correct-msg"><i class="fas fa-trophy"></i> تم إتقان جميع جمل هذه الكلمة</span>`;
+                }
+            } else {
+                feedbackSpan.innerHTML = `<span class="correct-msg"><i class="fas fa-star"></i> سبق إتقان هذه الجملة</span>`;
+            }
+        } else {
+            feedbackSpan.innerHTML = `<span class="wrong-msg"><i class="fas fa-times-circle"></i> غير مطابق، استمع للجملة وحاول مرة أخرى</span>`;
+            inputField.classList.add("shake-input");
+            setTimeout(() => inputField.classList.remove("shake-input"), 250);
+        }
+        userAnswers[wordId][sentencePos] = userVal;
+        localStorage.setItem("self100_answers_matrix", JSON.stringify(userAnswers));
+    }
+    
+    function nextSentence(wordId, inputField, feedbackSpan, sentenceDisplaySpan, sentenceTranslationSpan, sentenceCounterSpan) {
+        let current = currentSentenceIndex[wordId];
+        let nextIdx = (current + 1) % 5;
+        currentSentenceIndex[wordId] = nextIdx;
+        localStorage.setItem("self100_current_sentence_idx", JSON.stringify(currentSentenceIndex));
+        
+        let newSentenceEn = allItems[wordId].sentencesEn[nextIdx];
+        let newSentenceAr = allItems[wordId].sentencesAr[nextIdx];
+        sentenceDisplaySpan.textContent = newSentenceEn;
+        sentenceTranslationSpan.textContent = newSentenceAr;
+        sentenceCounterSpan.innerHTML = `الجملة ${nextIdx+1} / 5`;
+        
+        inputField.value = "";
+        inputField.style.background = "white";
+        feedbackSpan.innerHTML = `<span class="neutral-msg"><i class="fas fa-arrow-left"></i> جملة جديدة - اكتبها ثم تحقق</span>`;
+        
+        let cardElement = inputField.closest(".word-card");
+        let allComp = completedPerWord[wordId].every(v => v === true);
+        if (!allComp) cardElement.classList.remove("completed");
+    }
+    
+    function resetSingleWord(wordId) {
+        for (let j = 0; j < 5; j++) {
+            completedPerWord[wordId][j] = false;
+            userAnswers[wordId][j] = "";
+        }
+        currentSentenceIndex[wordId] = 0;
+        updateStats();
+        renderCards();
+    }
+    
+    function renderCards() {
+        let filtered = [...allItems];
+        if (searchWord.trim() !== "") {
+            let term = searchWord.toLowerCase();
+            filtered = filtered.filter(item => item.word.toLowerCase().includes(term) || item.translation.includes(term));
+        }
+        
+        let grid = document.getElementById("cardsGrid");
+        grid.innerHTML = "";
+        
+        for (let item of filtered) {
+            let idx = item.id;
+            let sentencePos = currentSentenceIndex[idx];
+            let currentSentenceEn = item.sentencesEn[sentencePos];
+            let currentSentenceAr = item.sentencesAr[sentencePos];
+            let allCompleted = completedPerWord[idx].every(v => v === true);
+            let savedVal = userAnswers[idx][sentencePos] || "";
+            let isCurrentCompleted = completedPerWord[idx][sentencePos];
+            
+            let cardDiv = document.createElement("div");
+            cardDiv.className = `flip-card word-card ${allCompleted ? 'completed' : ''}`;
+            cardDiv.setAttribute("data-id", idx);
+            
+            cardDiv.innerHTML = `
+                <div class="flip-card-inner">
+                    <div class="card-front">
+                        ${allCompleted ? '<div class="completion-badge"><i class="fas fa-check-circle"></i> مكتملة</div>' : ''}
+                        <div class="card-word-large">${escapeHtml(item.word)}</div>
+                        <div class="card-translation">${escapeHtml(item.translation)}</div>
+                        <div class="flip-hint">
+                            <i class="fas fa-hand-pointer"></i> اضغط لقلب البطاقة
+                        </div>
+                        <div class="flip-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        ${allCompleted ? '<div class="completion-badge"><i class="fas fa-check-circle"></i> مكتملة</div>' : ''}
+                        <div class="sentence-block">
+                            <div class="example-header">
+                                <span class="sentence-counter" id="counter-${idx}">الجملة ${sentencePos+1} / 5</span>
+                                <div class="button-group">
+                                    <button class="next-sentence-btn" id="next-${idx}"><i class="fas fa-exchange-alt"></i> جملة أخرى</button>
+                                    <button class="listen-button" id="listen-${idx}"><i class="fas fa-volume-up"></i> استمع</button>
+                                </div>
+                            </div>
+                            <div class="example-text" id="sentence-display-${idx}">${escapeHtml(currentSentenceEn)}</div>
+                            <div class="example-translation" id="sentence-translation-${idx}">
+                                <i class="fas fa-language"></i> ${escapeHtml(currentSentenceAr)}
+                            </div>
+                        </div>
+                        <div class="practice-block">
+                            <input type="text" class="practice-input" id="input-${idx}" placeholder="اكتب الجملة الإنجليزية..." value="${escapeHtml(savedVal)}" style="background:${isCurrentCompleted ? '#e8f5e8' : 'white'}">
+                            <div class="feedback-row">
+                                <span id="fb-${idx}">${isCurrentCompleted ? '<span class="correct-msg"><i class="fas fa-check-circle"></i> مكتملة</span>' : '<span class="neutral-msg"><i class="fas fa-edit"></i> اكتب الجملة ثم تحقق</span>'}</span>
+                                <div class="action-buttons">
+                                    <button class="check-btn" id="check-${idx}"><i class="fas fa-check"></i> تحقق</button>
+                                    <button class="retry-btn" id="retry-word-${idx}"><i class="fas fa-redo-alt"></i> إعادة</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-icon" style="position: static; margin-top: 10px;">
+                            <i class="fas fa-undo-alt"></i> اضغط لقلب البطاقة
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            grid.appendChild(cardDiv);
+            
+            const flipCard = cardDiv;
+            flipCard.addEventListener("click", (e) => {
+                if (e.target.closest('button') || e.target.closest('input')) return;
+                flipCard.classList.toggle("flipped");
+            });
+            
+            let inputEl = document.getElementById(`input-${idx}`);
+            let fbSpan = document.getElementById(`fb-${idx}`);
+            let checkBtn = document.getElementById(`check-${idx}`);
+            let retryWordBtn = document.getElementById(`retry-word-${idx}`);
+            let nextBtn = document.getElementById(`next-${idx}`);
+            let listenBtn = document.getElementById(`listen-${idx}`);
+            let sentenceDisplaySpan = document.getElementById(`sentence-display-${idx}`);
+            let sentenceTranslationSpan = document.getElementById(`sentence-translation-${idx}`);
+            let counterSpan = document.getElementById(`counter-${idx}`);
+            
+            if (listenBtn) {
+                listenBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    speakSentence(currentSentenceEn);
+                });
+            }
+            if (checkBtn) {
+                checkBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    verifyInput(idx, sentencePos, inputEl, fbSpan, cardDiv);
+                });
+            }
+            if (retryWordBtn) {
+                retryWordBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    resetSingleWord(idx);
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    nextSentence(idx, inputEl, fbSpan, sentenceDisplaySpan, sentenceTranslationSpan, counterSpan);
+                    let newSentenceText = sentenceDisplaySpan.textContent;
+                    let newListenBtn = document.getElementById(`listen-${idx}`);
+                    if (newListenBtn) {
+                        newListenBtn.replaceWith(newListenBtn.cloneNode(true));
+                        let freshListenBtn = document.getElementById(`listen-${idx}`);
+                        if (freshListenBtn) {
+                            freshListenBtn.addEventListener("click", (e) => {
+                                e.stopPropagation();
+                                speakSentence(newSentenceText);
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+    
+    function escapeHtml(str) {
+        if (!str) return "";
+        return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : (m === '<' ? '&lt;' : '&gt;'));
+    }
+    
+    function loadSaved() {
+        let savedComp = localStorage.getItem("self100_completed_sentences");
+        if (savedComp) { try { let p = JSON.parse(savedComp); if (p.length === allItems.length) completedPerWord = p; } catch(e){} }
+        let savedIdx = localStorage.getItem("self100_current_sentence_idx");
+        if (savedIdx) { try { let idxs = JSON.parse(savedIdx); if (idxs.length === allItems.length) currentSentenceIndex = idxs; } catch(e){} }
+        let savedAns = localStorage.getItem("self100_answers_matrix");
+        if (savedAns) { try { let a = JSON.parse(savedAns); if (a.length === allItems.length) userAnswers = a; } catch(e){} }
+        updateStats();
+    }
+    
+    function fullReset() {
+        if (confirm("هل أنت متأكد؟ سيتم حذف كل التمارين الصحيحة وإعادة ضبط جميع الجمل.")) {
+            completedPerWord = Array(allItems.length).fill().map(() => Array(5).fill(false));
+            currentSentenceIndex = Array(allItems.length).fill(0);
+            userAnswers = Array(allItems.length).fill().map(() => Array(5).fill(""));
+            updateStats();
+            renderCards();
+        }
+    }
+    
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            renderCards();
+        });
+    });
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+        searchWord = e.target.value;
+        renderCards();
+    });
+    document.getElementById("resetAllBtn").addEventListener("click", fullReset);
+    document.getElementById("backArrowBtn").addEventListener("click", () => { window.location.href = "index.html"; });
+    
+    loadSaved();
+    renderCards();
+</script>
 </body>
 </html>
